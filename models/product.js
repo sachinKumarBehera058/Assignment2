@@ -5,10 +5,6 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  year: {
-    type: Number,
-    required: true,
-  },
   listPrice: {
     type: Number,
     required: true,
@@ -17,15 +13,6 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  mileage: {
-    type: Number,
-  },
-  powerBHP: {
-    type: Number,
-  },
-  maxSpeed: {
-    type: Number,
-  },
   image: {
     type: String, 
   },
@@ -33,4 +20,4 @@ const productSchema = new mongoose.Schema({
 
 productSchema.index({ model: 'text' });
 
-module.exports = mongoose.model('OEM_Spec', productSchema);
+module.exports = mongoose.model('caps_sell', productSchema);
