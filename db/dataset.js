@@ -90,7 +90,6 @@ const sampleData =[
       
     ];
 
-
 async function insertSampleData() {
     try {
         // await caps_sell.deleteMany();
