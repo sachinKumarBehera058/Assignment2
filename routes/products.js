@@ -6,14 +6,14 @@ const Product = require('../models/product');
 router.get('/', async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const pageSize = parseInt(req.query.pageSize) || 20;  // Adjust the page size as needed
+    const pageSize = parseInt(req.query.pageSize) || 20;  
 
     const totalProducts = await Product.countDocuments();
     const totalPages = Math.ceil(totalProducts / pageSize);
 
     const products = await Product.find()
-      .skip((page - 1) * pageSize)
-      .limit(pageSize);
+      .skip((page - 1) * pageSize)  
+      .limit(pageSize);  
 
     res.json({
       products,

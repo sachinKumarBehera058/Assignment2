@@ -1,23 +1,33 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-  model: {
+  title: {
     type: String,
     required: true,
   },
-  listPrice: {
+  price: {
     type: Number,
     required: true,
   },
-  colors: {
-    type: String,
-    required: true,
-  },
-  image: {
-    type: String, 
+  variants: [
+    {
+      color: {
+        type: String,
+        required: true,
+      },
+      image: {
+        type: String, 
+        required: true,
+      },
+    },
+  ],
+  rating: {
+    type: Number,
+    default: 0, 
   },
 });
 
-productSchema.index({ model: 'text' });
+const Product = mongoose.model('caps_sell', productSchema);
 
-module.exports = mongoose.model('caps_sell', productSchema);
+module.exports = Product;
+
